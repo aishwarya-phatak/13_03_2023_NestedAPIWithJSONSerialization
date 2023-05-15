@@ -10,6 +10,8 @@ import UIKit
 class ViewController: UIViewController {
     
     var products : [Product] = []
+    @IBOutlet weak var productTableView: UITableView!
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         jsonParsing()
@@ -45,5 +47,15 @@ class ViewController: UIViewController {
             }
             
         }
+    }
+}
+
+extension ViewController : UITableViewDataSource{
+    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        products.count
+    }
+    
+    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        
     }
 }
